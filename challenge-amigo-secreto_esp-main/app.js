@@ -5,10 +5,14 @@ let nombre;
 let listaNombres;
 let amigo;
 let resultado;
-//let repetidos = [];
-//let maximo = nombres.length;
+let repetidos = [];
+let sorteoTerminado = false;
 
 function agregarNombres(){
+    if(sorteoTerminado){
+        alert("El sorteo ya finalizó. No puedes agregar más nombres.");
+        return;
+    }
     nombre = document.getElementById("amigo").value;
    if(onlyString(nombre) == false){
         alert("Debes introducir un valor valido");
@@ -39,7 +43,6 @@ function mostrarNombre(){
     }
 }
 
-
 function crearElementLi(){
     let li = document.createElement("li");
     li.textContent = amigo;
@@ -47,15 +50,28 @@ function crearElementLi(){
 }
 
 function sortearAmigo(){
+    if(sorteoTerminado){
+        alert("El sorteo finalizó");
+        return;
+    }
+    if(nombres.length === 0){
+        alert("Ya no quedan amigos por srotear");
+        acabarSorteo();
+        return;
+    }
     let indice = Math.floor(Math.random()*nombres.length);
     resultado = nombres[indice];
+    repetidos.push(resultado);
+    nombres.splice(indice, 1)
     mostrarSorteado();
     console.log(resultado);
     console.log(indice);
 }
 
 function acabarSorteo(){
-    document.getElementById('botonSorteo').setAttribute('disabled', true);
+    sorteoTerminado = true;
+    document.getElementById('btnSorteo').setAttribute('disabled', true);
+    document.getElementById('btnAdd').setAttribute('disabled', true);
     let texto = document.getElementById("titulo");
     texto.innerHTML ='Ya se sortearon a todos tus amigos';
 }
@@ -65,5 +81,8 @@ function mostrarSorteado(){
     listaNombres.innerHTML ="";
     let ganador = document.querySelector("#resultado");
     ganador.innerHTML = `Tu amigo secreto es ${resultado}`;
-    acabarSorteo();
+    if(nombres.length === 0){
+        acabarSorteo();
+    }
 }
+
