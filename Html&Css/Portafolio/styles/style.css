@@ -1,12 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
+:root{
+    --color-primario: #001F3F;
+    --color-secundario: #3A6D8C;
+    --color-terciaio: #6A9AB0;
+    --color-hover: #EAD8B1;
+
+    --fuente-krona: "Krona one", sans-serif;;
+    --fuente-montserrat: "Montserrat", sans-serif;;
+}
+
 *{   
     padding: 0;
     margin: 0;
 }
+
 body{
-    background-color: #000000;
-    color: #f6f6f6;
+    background-color: var(--color-primario);
+    color:var(--color-secundario);
     box-sizing: border-box;
 }
 
@@ -20,18 +31,18 @@ body{
 }
 
 .header_menu_principal{
-    font-family: "Montserrat", sans-serif;
+    font-family: var(--fuente-montserrat);
     font-size: 24px;
     font-weight: 400;
-    color: #22D4fd;
+    color: var(--color-terciaio);
     text-decoration: none;
 }
 
 .header_menu_about{
-    font-family: "Montserrat", sans-serif;
+    font-family:var(--fuente-montserrat);
     font-size: 24px;
     font-weight: 400;
-    color: #22D4fd;
+    color: var(--color-terciaio);
     text-decoration: none;
 }
 .presentacion{
@@ -48,14 +59,14 @@ body{
 }
 .presentacion_contenido_titulo{
     font-size: 36px;
-    font-family: "Krona One", sans-serif;
+    font-family: var(--fuente-krona);
 }
 .titulo-destacado{
-    color: #22D4fd;
+    color: var(--color-terciaio);
 }
 .presentacion_contenido_texto{
     font-size: 24px;
-    font-family: "Montserrat", sans-serif;
+    font-family: var(--fuente-montserrat);
 }
 .presentacion_links{
     display: flex;
@@ -65,37 +76,36 @@ body{
     gap: 32px;
 }
 .presentacion_contenido_subtitulo{
-    font-family: 'Krona One', sans-serif;
+    font-family: var(--fuente-krona);
     font-size: 24px;
     font-weight: 400;
 }
 
 .presentacion_links_boton{
     width: 378px;
-    font-family: "Montserrat", sans-serif;
+    font-family: var(--fuente-montserrat);
     font-size: 24px;
     font-weight: 600;
     text-align: center;
     padding: 21.5px 0px;
     border-radius: 8px;
-    border: 2px solid, #22D4fd;
+    border: 2px solid, var(--color-terciaio);
     text-decoration: none;
-    color: #f6f6f6;
+    color: var(--color-secundario);
     display: flex;
     justify-content: center;
     gap: 10px;
 }
 
 .presentacion_links_boton:hover{
-    background-color: #272727;
+    background-color: var(--color-hover);
 }
 
 .footer{
-    background-color: #22D4fd;
+    background-color: var(--color-terciaio);
     padding: 24px;
     text-align: center;
-    font-family: "Montserrat", sans-serif;
+    font-family: var(--fuente-montserrat);
     font-size: 24px;
     font-weight: 400;
-
 }
