@@ -1,6 +1,6 @@
 package modelos;
 
-import calculos.Clasificacion;
+import comportamientos.Clasificacion;
 
 public class Cancion extends Audio implements Clasificacion {
     private String cantante;
@@ -8,7 +8,10 @@ public class Cancion extends Audio implements Clasificacion {
 
     @Override
     public int getClasificacion() {
-        return (int) promedio()/2;
+        if (getTotalDeMeGusta() >= 500) {
+            return 9;
+        }
+        return 4;
     }
 
     public String getCantante() {

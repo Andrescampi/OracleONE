@@ -6,28 +6,13 @@ import comportamientos.Reproducible;
 
 import static java.lang.System.out;
 
-public abstract class Audio implements DarLike, Reproducible, AgregarPlaylist{
-    protected int duracion;
+public abstract class Audio implements DarLike, Reproducible, AgregarPlaylist {
     protected String titulo;
     protected int totalReproducciones;
-    protected int meGusta;
-    protected int suma;
-    protected int totalNotas;
+    protected int totalDeMeGusta;
+    protected int clasificacion;
 
-    public void mostrarDetalles(){
-        out.println("Titulo: " + titulo);
-        out.println("Duracion: " + getDuracion());
-        out.println("TotalReproducciones: " + getTotalReproducciones());
-    }
 
-    public  void evalua(double nota){
-        suma += nota;
-        totalNotas++;
-    }
-
-    public double promedio(){
-        return suma/totalNotas;
-    }
     @Override
     public void reproducir() {
         totalReproducciones++;
@@ -40,23 +25,23 @@ public abstract class Audio implements DarLike, Reproducible, AgregarPlaylist{
 
     @Override
     public void darLike() {
-        meGusta++;
+        totalDeMeGusta++;
     }
 
-    public int getDuracion() {
-        return duracion;
+    public int getTotalDeMeGusta() {
+        return totalDeMeGusta;
     }
 
-    public void setDuracion(int duracion) {
-        this.duracion = duracion;
+    public void setTotalDeMeGusta(int totalDeMeGusta) {
+        this.totalDeMeGusta = totalDeMeGusta;
     }
 
-    public int getMeGusta() {
-        return meGusta;
+    public int getClasificacion() {
+        return clasificacion;
     }
 
-    public void setMeGusta(int meGusta) {
-        this.meGusta = meGusta;
+    public void setClasificacion(int clasificacion) {
+        this.clasificacion = clasificacion;
     }
 
     public int getTotalReproducciones() {

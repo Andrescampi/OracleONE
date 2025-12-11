@@ -1,38 +1,30 @@
 package modelos;
 
-import calculos.Clasificacion;
-
 public class Podcast extends Audio {
-    int temporadas;
-    int episodios;
-    int minutosPorEpisodios;
+    private String presentador;
+    private String descripcion;
 
     @Override
-    public int getDuracion(){
-        return temporadas * minutosPorEpisodios * episodios;
+    public int getClasificacion() {
+        if (getTotalReproducciones() >= 500) {
+            return 8;
+        }
+        return 3;
     }
 
-    public int getTemporadas() {
-        return temporadas;
+    public String getPresentador() {
+        return presentador;
     }
 
-    public void setTemporadas(int temporadas) {
-        this.temporadas = temporadas;
+    public void setPresentador(String presentador) {
+        this.presentador = presentador;
     }
 
-    public int getMinutosPorEpisodios() {
-        return minutosPorEpisodios;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setMinutosPorEpisodios(int minutosPorEpisodios) {
-        this.minutosPorEpisodios = minutosPorEpisodios;
-    }
-
-    public int getEpisodios() {
-        return episodios;
-    }
-
-    public void setEpisodios(int episodios) {
-        this.episodios = episodios;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 }
