@@ -4,6 +4,8 @@ import modelos.Episodio;
 import modelos.Pelicula;
 import modelos.Serie;
 
+import java.util.ArrayList;
+
 import static java.lang.System.out;
 
 public class Principal {
@@ -46,5 +48,35 @@ public class Principal {
 
         recomendacion.filtra(episodio1);
 
+        var scaryMovie = new Pelicula();
+        scaryMovie.setNombre("Scary Movie");
+        scaryMovie.setFecha(2005);
+        scaryMovie.setDuracion(3000);
+        scaryMovie.setDirector("Marlon Wayans");
+
+        var favorito = new Pelicula();
+        scaryMovie.setNombre("favorito");
+        scaryMovie.setFecha(2005);
+        scaryMovie.setDuracion(3000);
+        scaryMovie.setDirector("Marlon Wayans");
+
+        var otro = new Pelicula();
+        scaryMovie.setNombre("otro");
+        scaryMovie.setFecha(2005);
+        scaryMovie.setDuracion(3000);
+        scaryMovie.setDirector("Marlon Wayans");
+
+        ArrayList<Pelicula> listaDePeliculas = new ArrayList<>();
+        listaDePeliculas.add(pelicula1);
+        listaDePeliculas.add(scaryMovie);
+
+        out.println("Tamaño de la lista de peliculas "+ listaDePeliculas.size());
+        out.println("Primera pelicula " + listaDePeliculas.get(0).getNombre());
+
+        listaDePeliculas.add(favorito);
+        listaDePeliculas.add(otro);
+        System.out.println("Tamaño de la lista: "+ listaDePeliculas.size());
+        System.out.println("Primera película: "+ listaDePeliculas.get(0));
+        System.out.println(listaDePeliculas);
     }
 }
