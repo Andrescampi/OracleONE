@@ -1,8 +1,10 @@
-import calculos.CalculadoraDeTiempo;
-import calculos.FiltroRecomendaciones;
-import modelos.Episodio;
-import modelos.Pelicula;
-import modelos.Serie;
+package com.alura.screenmatch.Principal;
+
+import com.alura.screenmatch.calculos.CalculadoraDeTiempo;
+import com.alura.screenmatch.calculos.FiltroRecomendaciones;
+import com.alura.screenmatch.modelos.Episodio;
+import com.alura.screenmatch.modelos.Pelicula;
+import com.alura.screenmatch.modelos.Serie;
 
 import java.util.ArrayList;
 
@@ -10,9 +12,7 @@ import static java.lang.System.out;
 
 public class Principal {
     public static void main(String[] args) {
-        Pelicula pelicula1 = new Pelicula();
-        pelicula1.setNombre("cars");
-        pelicula1.setFecha(2005);
+        Pelicula pelicula1 = new Pelicula("cars",2005);
         pelicula1.setDuracion(3000);
         pelicula1.setIncluido(true);
 
@@ -22,9 +22,7 @@ public class Principal {
         out.println(pelicula1.getSuma());
         out.println(pelicula1.promedio());
 
-        Serie theOffice = new Serie();
-        theOffice.setNombre("The office");
-        theOffice.setFecha(2005);
+        Serie theOffice = new Serie("The office",2005);
         theOffice.setDuracion(3000);
         theOffice.setTemporadas(8);
         theOffice.setEpisodios(22);
@@ -48,21 +46,15 @@ public class Principal {
 
         recomendacion.filtra(episodio1);
 
-        var scaryMovie = new Pelicula();
-        scaryMovie.setNombre("Scary Movie");
-        scaryMovie.setFecha(2005);
+        var scaryMovie = new Pelicula("Scary Movie",2005);
         scaryMovie.setDuracion(3000);
         scaryMovie.setDirector("Marlon Wayans");
 
-        var favorito = new Pelicula();
-        scaryMovie.setNombre("favorito");
-        scaryMovie.setFecha(2005);
+        var favorito = new Pelicula("favorito",2005);
         scaryMovie.setDuracion(3000);
         scaryMovie.setDirector("Marlon Wayans");
 
-        var otro = new Pelicula();
-        scaryMovie.setNombre("otro");
-        scaryMovie.setFecha(2005);
+        var otro = new Pelicula("otro",2005);
         scaryMovie.setDuracion(3000);
         scaryMovie.setDirector("Marlon Wayans");
 

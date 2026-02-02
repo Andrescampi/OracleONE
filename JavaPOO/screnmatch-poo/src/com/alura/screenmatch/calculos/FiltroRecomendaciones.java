@@ -1,4 +1,4 @@
-package calculos;
+package com.alura.screenmatch.calculos;
 
 import static java.lang.System.out;
 

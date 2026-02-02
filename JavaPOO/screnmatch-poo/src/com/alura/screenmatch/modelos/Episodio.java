@@ -1,6 +1,6 @@
-package modelos;
+package com.alura.screenmatch.modelos;
 
-import calculos.Clasificacion;
+import com.alura.screenmatch.calculos.Clasificacion;
 
 public class Episodio implements Clasificacion {
     private String nombre;

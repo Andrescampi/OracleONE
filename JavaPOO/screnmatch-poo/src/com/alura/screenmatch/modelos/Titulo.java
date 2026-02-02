@@ -1,12 +1,17 @@
-package modelos;
+package com.alura.screenmatch.modelos;
 
-public class Titulo {
+public class Titulo implements Comparable<Titulo>{
     private String nombre;
     private int fecha;
     private int duracion;
     private boolean incluido;
     private double suma;
     private int totalNotas;
+
+    public Titulo(String nombre, int fecha) {
+        this.nombre = nombre;
+        this.fecha = fecha;
+    }
 
     public void muestraFichaTecnica(){
         System.out.println("El nombre de la pelicula es: " + nombre);
@@ -21,10 +26,6 @@ public class Titulo {
 
     public String getNombre() {
         return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
     }
 
     public int getFecha() {
@@ -69,5 +70,10 @@ public class Titulo {
 
     public double promedio(){
         return suma/totalNotas;
+    }
+
+    @Override
+    public int compareTo(Titulo otroTitulo) {
+        return this.getNombre().compareTo(otroTitulo.getNombre());
     }
 }
