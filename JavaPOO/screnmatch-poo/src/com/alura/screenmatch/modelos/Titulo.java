@@ -1,5 +1,8 @@
 package com.alura.screenmatch.modelos;
 
+import com.alura.screenmatch.exepcion.ErrorEnConversionDeDuracionException;
+import com.google.gson.annotations.SerializedName;
+
 public class Titulo implements Comparable<Titulo>{
     private String nombre;
     private int fecha;
@@ -11,6 +14,15 @@ public class Titulo implements Comparable<Titulo>{
     public Titulo(String nombre, int fecha) {
         this.nombre = nombre;
         this.fecha = fecha;
+    }
+
+    public Titulo(TituloOmdb miTituloOmdb) {
+        this.nombre = miTituloOmdb.title();
+        this.fecha = Integer.valueOf(miTituloOmdb.year());
+        if (miTituloOmdb.runtime().contains("N/A")) {
+            throw new ErrorEnConversionDeDuracionException("No puedo convertir la duración," + "Porque contiene un N/A");
+        }
+        this.duracion = Integer.valueOf(miTituloOmdb.runtime().substring(0, 3).replace(" ", ""));
     }
 
     public void muestraFichaTecnica(){
@@ -75,5 +87,11 @@ public class Titulo implements Comparable<Titulo>{
     @Override
     public int compareTo(Titulo otroTitulo) {
         return this.getNombre().compareTo(otroTitulo.getNombre());
+    }
+
+    @Override
+    public String toString() {
+        return "(nombre= " + nombre +
+                ", fecha=" + fecha + "Duracion: " + duracion;
     }
 }
